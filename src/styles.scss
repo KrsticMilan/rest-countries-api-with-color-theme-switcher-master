@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config($font-family: 'Nunito Sans, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 800),
+  $body-1: mat-typography-level(16px, 24px, 600),
+  $body-2: mat-typography-level(8px, 12px, 300));
+
+@include mat-core($custom-typography);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$light-colors: (50 : #fefefe,
+  100 : #fefefe,
+  200 : #fdfdfd,
+  300 : #fcfcfc,
+  400 : #fbfbfb,
+  500 : #fafafa,
+  600 : #f9f9f9,
+  700 : #f9f9f9,
+  800 : #f8f8f8,
+  900 : #f6f6f6,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  ));
+
+/* For use in src/lib/core/theming/_palette.scss */
+$dark-colors: (50 : #e6e7e9,
+  100 : #bfc4c7,
+  200 : #959ca2,
+  300 : #6b747d,
+  400 : #4b5761,
+  500 : #2b3945,
+  600 : #26333e,
+  700 : #202c36,
+  800 : #1a242e,
+  900 : #10171f,
+  A100 : #62a9ff,
+  A200 : #2f8dff,
+  A400 : #0072fb,
+  A700 : #0066e1,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  ));
+
+$primary: mat-palette($light-colors);
+$accent: mat-palette($light-colors, A200, A100, A400);
+
+$warn: mat-palette($mat-red);
+
+$theme-light: mat-light-theme((color: (primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    )));
+
+@include angular-material-theme($theme-light);
+
+$primary-dark: mat-palette($dark-colors);
+$accent-dark: mat-palette($dark-colors, 200, 100, 400);
+
+$theme-dark: mat-dark-theme((color: (primary: $primary-dark,
+      accent: $accent-dark,
+      warn: $warn,
+    )));
+
+.theme-dark {
+  @include angular-material-theme($theme-dark);
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}

@@ -22,6 +22,9 @@ speed-measure-plugin*.json
 *.launch
 .settings/
 *.sublime-workspace
+*.xd
+*.fig
+*.sketch
 
 # IDE - VSCode
 .vscode/*

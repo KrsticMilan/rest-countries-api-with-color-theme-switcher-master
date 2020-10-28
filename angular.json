@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rest-countries-api-with-color-theme-switcher-master"
+    }
+  },
+  "defaultProject": "rest-countries-api-with-color-theme-switcher-master",
+  "cli": {
+    "analytics": "2f99860d-1f2b-402c-b1e7-200472b2f918"
+  }
 }

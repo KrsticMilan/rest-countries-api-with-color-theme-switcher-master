@@ -1,0 +1,55 @@
+<div style="height: 94vh;">
+  <div style="padding: 50px 10px;">
+    <button (click)="back()" mat-raised-button>
+      <mat-icon>keyboard_backspace</mat-icon>
+      Back
+    </button>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+    <div>
+      <img [src]="country.flag" alt="">
+    </div>
+    <div fxLayout="column" fxLayoutGap="50px">
+      <div>
+        <h1>{{country.name}}</h1>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <div style="padding: 10px;">
+          <div>
+            Native Name: {{country.nativeName}}
+          </div>
+          <div>
+            Population: {{country.population | number}}
+          </div>
+          <div>
+            Region: {{country.region}}
+          </div>
+          <div>
+            Sub Region: {{country.subregion}}
+          </div>
+          <div>
+            Capital: {{country.capital}}
+          </div>
+        </div>
+        <div style="padding: 10px;">
+          <div>
+            Top Level Domain: {{country.topLevelDomain}}
+          </div>
+          <div>
+            Currencie: <span
+              *ngFor="let currence of country.currencies; let i = index">{{currence.name}}{{i === country.currencies.length -1 ? '' : ',&nbsp;'}}</span>
+          </div>
+          <div>
+            <span>Languages: </span> <span
+              *ngFor="let language of country.languages; let i = index">{{language.name}}{{i === country.languages.length -1 ? '' : ',&nbsp;'}}</span>
+          </div>
+        </div>
+      </div>
+      <div style="width: 450px;">
+        Border Countries: <span *ngFor="let country of country.borders">
+          <button (click)="fetchBorderCountry(country)" mat-raised-button color="primary">{{country}}</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<app-search
+  (selectedRegion)="fetchCountries($event)"
+  (countryName)="fetchCountriesByName($event)"
+></app-search>
+<div
+  class="card-wrapper theme-background"
+  fxLayout="row wrap"
+  fxLayoutGap="50px grid"
+>
+  <app-card
+    fxFlex="25%"
+    fxFlex.xs="100%"
+    fxFlex.sm="33%"
+    *ngFor="let country of countriesSlice"
+    [country]="country"
+  >
+  </app-card>
+</div>
+<mat-paginator
+  [length]="this.countries.length"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastbuttons
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

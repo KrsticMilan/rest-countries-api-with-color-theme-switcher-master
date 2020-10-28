@@ -1,0 +1,10 @@
+<mat-toolbar
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  color="primary"
+>
+  <span>{{ title }}</span>
+  <mat-slide-toggle (change)="onDarkModeSwitched($event)"
+    >Dark Mode</mat-slide-toggle
+  >
+</mat-toolbar>
